@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Laravel 9 CRUD Tutorial Example</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
-</head>
-<body>
+<x-app-layout>
 <div class="container mt-2">
     <div class="row">
-        <div class="col-lg-12 margin-tb">
+        <div class="col-lg-12 margin-tb mt-5">
             <div class="pull-left">
                 <h2>Laravel 9 CRUD Example Tutorial</h2>
             </div>
-            <div class="pull-right mb-2">
+            <div class="pull-right mb-5">
                 <a class="btn btn-success" href="{{ route('companies.create') }}"> Create Company</a>
             </div>
         </div>
@@ -44,7 +37,7 @@
                         <a class="btn btn-primary" href="{{ route('companies.edit',$company->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -53,5 +46,4 @@
     </table>
     {!! $companies->links() !!}
 </div>
-</body>
-</html>
+</x-app-layout>

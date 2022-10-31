@@ -15,7 +15,17 @@ use App\Http\Controllers\CompanyController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('companies');
 });
 
-Route::resource('companies', CompanyController::class);
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('companies', CompanyController::class);
+});
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\AjaxController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,11 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
     Route::resource('companies', CompanyController::class);
+
+    Route::get('/test-ajax', [AjaxController::class, 'testAjax']);
+
 });
 
 

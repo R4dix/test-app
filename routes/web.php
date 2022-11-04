@@ -25,7 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('companies', CompanyController::class);
 
-    Route::get('/test-ajax', [AjaxController::class, 'testAjax']);
+    Route::get('/test-ajax', [AjaxController::class, 'testAjax'])->name("test-ajax");
 
 });
 
